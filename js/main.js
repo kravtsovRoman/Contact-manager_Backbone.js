@@ -1,7 +1,11 @@
-var Person = Backbone.Model.extend({
-  defaults: {
-    name: 'Roma',
-    age: '31',
-    job: 'Frontend'
-  }
+(function() {
+  window.App = {
+    Models: {},
+    Collections: {},
+    Views: {}
+  };
+
+  windows.temolate = function(id) {
+    return _.template($('#' + id).html());
+  };
 });
