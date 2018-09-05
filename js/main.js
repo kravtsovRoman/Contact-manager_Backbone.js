@@ -1,11 +1,28 @@
-(function() {
+$(function() {
   window.App = {
     Models: {},
     Collections: {},
     Views: {}
   };
 
-  windows.temolate = function(id) {
+  window.template = function(id) {
     return _.template($('#' + id).html());
   };
+
+  App.Models.Task = Backbone.Model.extend({});
+  App.Views.Task = Backbone.View.extend({
+    tagName: 'li',
+    render: function() {
+      this.$el.html(this.model.get('title'));
+      return this;
+    }
+  });
+
+  // var task = new App.Models.Task({
+  //   title: 'Сходить в магазин',
+  //   priority: 4
+  // });
+  var tasklView = new App.Views.Task({ model: task });
+
+  console.log(tasklView.render().el);
 });
